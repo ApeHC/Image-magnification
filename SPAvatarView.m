@@ -60,7 +60,7 @@
 
 - (void)PopViewWithImageUrl:(NSString *)url{
     [self.AvatarImage sd_setImageWithURL:[NSURL URLWithString:url]
-                        placeholderImage:[UIImage imageNamed:@"图片的展位图"]];
+                        placeholderImage:[UIImage imageNamed:@"图片的占位图"]];
     __weak typeof(self) _weakSelf = self;
     [UIView animateWithDuration:0.3 animations:^{
         _weakSelf.AvatarImage.frame = [UIScreen mainScreen].bounds;
