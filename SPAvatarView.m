@@ -46,25 +46,23 @@
 }
 
 - (void)dissView{
-    __weak typeof(self) _weakSelf = self;
     [UIView animateWithDuration:0.3 animations:^{
-        _weakSelf.AvatarImage.frame = CGRectMake(UISIZE.width * 0.5, UISIZE.height * 0.5, 1, 1);
-        _weakSelf.BgView.frame   = CGRectMake(UISIZE.width * 0.5, UISIZE.height * 0.5, 1, 1);
+        self.AvatarImage.frame = CGRectMake(UISIZE.width * 0.5, UISIZE.height * 0.5, 1, 1);
+        self.BgView.frame   = CGRectMake(UISIZE.width * 0.5, UISIZE.height * 0.5, 1, 1);
     }completion:^(BOOL finished) {
-        _weakSelf.BgView = nil;
-        _weakSelf.AvatarImage = nil;
-        _weakSelf.TapButton = nil;
-        [_weakSelf removeFromSuperview];
+        self.BgView = nil;
+        self.AvatarImage = nil;
+        self.TapButton = nil;
+        [self removeFromSuperview];
     }];
 }
 
 - (void)PopViewWithImageUrl:(NSString *)url{
     [self.AvatarImage sd_setImageWithURL:[NSURL URLWithString:url]
                         placeholderImage:[UIImage imageNamed:@"图片的占位图"]];
-    __weak typeof(self) _weakSelf = self;
     [UIView animateWithDuration:0.3 animations:^{
-        _weakSelf.AvatarImage.frame = [UIScreen mainScreen].bounds;
-        _weakSelf.BgView.frame = [UIScreen mainScreen].bounds;
+        self.AvatarImage.frame = [UIScreen mainScreen].bounds;
+        self.BgView.frame = [UIScreen mainScreen].bounds;
     }];
 }
 
